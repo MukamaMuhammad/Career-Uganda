@@ -12,14 +12,9 @@ const container = [
   [{ align: [] }],
 ];
 
-interface IProps {
-  content: string;
-  setContent: React.Dispatch<React.SetStateAction<string>>;
-}
-
-const Editor: React.FC<IProps> = ({ content, setContent }) => {
-  const quillRef = useRef<typeof ReactQuill>(null);
-  const textareaRef = useRef<HTMLTextAreaElement | null>(null);
+const Editor = ({ content, setContent }) => {
+  const quillRef = useRef(null);
+  const textareaRef = useRef(null);
 
   const modules = {
     toolbar: [
@@ -66,7 +61,6 @@ const Editor: React.FC<IProps> = ({ content, setContent }) => {
         formats={formats}
         placeholder="Write somethings..."
         value={content}
-        // @ts-ignore
         ref={quillRef}
       />
       <textarea
