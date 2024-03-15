@@ -12,9 +12,14 @@ const container = [
   [{ align: [] }],
 ];
 
-const Editor = ({ content, setContent }) => {
-  const quillRef = useRef(null);
-  const textareaRef = useRef(null);
+interface IProps {
+  content: string;
+  setContent: React.Dispatch<React.SetStateAction<string>>;
+}
+
+const Editor: React.FC<IProps> = ({ content, setContent }) => {
+  const quillRef = useRef<typeof ReactQuill>(null);
+  const textareaRef = useRef<HTMLTextAreaElement | null>(null);
 
   const modules = {
     toolbar: [
@@ -45,7 +50,9 @@ const Editor = ({ content, setContent }) => {
 
   useEffect(() => {
     if (quillRef.current && textareaRef.current) {
+      // @ts-ignore
       quillRef.current.getEditor().on("text-change", () => {
+        // @ts-ignore
         const quillText = quillRef.current.getEditor().root.innerHTML;
         textareaRef.current.value = quillText;
         // setContent(quillText); // Optionally update the state with the content
@@ -61,6 +68,7 @@ const Editor = ({ content, setContent }) => {
         formats={formats}
         placeholder="Write somethings..."
         value={content}
+        // @ts-ignore
         ref={quillRef}
       />
       <textarea

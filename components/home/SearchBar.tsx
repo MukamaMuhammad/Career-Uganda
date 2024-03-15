@@ -160,6 +160,8 @@ const SearchBar: React.FC<Section1Props> = ({ search, date }) => {
 
   async function handleSearch(formData: any) {
     const search = formData.get("search");
+
+    // @ts-ignore
     pushQuery({ search });
   }
 
