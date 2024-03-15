@@ -21,7 +21,14 @@ const CategoryFilter = () => {
       <SelectTrigger className="w-auto">
         <SelectValue placeholder="Job Category" />
       </SelectTrigger>
-      <SelectContent>
+      <SelectContent
+        ref={(ref) => {
+          if (!ref) return;
+          ref.ontouchstart = (e) => {
+            e.preventDefault();
+          };
+        }}
+      >
         <SelectGroup>
           <SelectItem value="Any">- Any-</SelectItem>
           <SelectItem value="Accounting/Finance">Accounting/Finance</SelectItem>

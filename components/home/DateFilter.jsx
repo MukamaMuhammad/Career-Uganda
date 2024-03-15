@@ -21,7 +21,14 @@ const DateFilter = () => {
       <SelectTrigger className="w-auto">
         <SelectValue placeholder="Date" />
       </SelectTrigger>
-      <SelectContent>
+      <SelectContent
+        ref={(ref) => {
+          if (!ref) return;
+          ref.ontouchstart = (e) => {
+            e.preventDefault();
+          };
+        }}
+      >
         <SelectGroup>
           <SelectItem value="Any">Any</SelectItem>
           <SelectItem value="24hrs">Last 24 hrs</SelectItem>
