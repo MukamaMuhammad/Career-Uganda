@@ -9,15 +9,15 @@ const page = () => {
   const session = useSession();
   const router = useRouter();
 
-  if (session.status === "loading") {
+  if (session?.status === "loading") {
     return <p>Loading...</p>;
   }
 
-  if (session.status === "unauthenticated") {
+  if (session?.status === "unauthenticated") {
     router?.push("/dashboard/signin");
   }
 
-  if (session) {
+  if (session?.status === "authenticated") {
     return (
       <section className="container mx-auto h-[auto] bg-gray-50 py-[2rem] px-[1rem] md:px-[7rem] z-0">
         <div className=" md:px-20 bg-white p-3 py-10">

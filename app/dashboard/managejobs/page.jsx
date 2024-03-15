@@ -21,11 +21,11 @@ const page = () => {
   // console.log(data);
   // const deleteJobWithId = deleteJob.bind(null, postId)
 
-  if (session.status === "loading") {
+  if (session?.status === "loading") {
     return <p>Loading...</p>;
   }
 
-  if (session.status === "unauthenticated") {
+  if (session?.status === "unauthenticated") {
     router?.push("/dashboard/signin");
   }
 
@@ -44,7 +44,7 @@ const page = () => {
     router.push(`/dashboard/editjob?id=${id}`);
   };
 
-  if (session) {
+  if (session?.status === "authenticated") {
     return (
       <section className="container mx-auto h-[auto] bg-gray-50  py-[3rem] px-[1rem] md:px-[7rem] z-0">
         <div className=" bg-white py-10">
