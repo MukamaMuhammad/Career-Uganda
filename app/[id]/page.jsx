@@ -6,7 +6,7 @@ import parse from "html-react-parser";
 import { marked } from "marked";
 
 async function getData(id) {
-  const res = await fetch(`http://localhost:3000/api/jobposts/${id}`, {
+  const res = await fetch(`/api/jobposts/${id}`, {
     cache: "no-store",
   });
 
