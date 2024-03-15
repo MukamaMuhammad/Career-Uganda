@@ -13,7 +13,7 @@ const page = () => {
   const jobId = searchParams.get("id");
 
   const [jobDescription, setJobDescription] = useState("");
-  const handleJobDescriptionChange = (content) => {
+  const handleJobDescriptionChange = (content: any) => {
     setJobDescription(content);
   };
 
@@ -46,7 +46,7 @@ const page = () => {
     if (jobId) getJobsDetails();
   }, [jobId]);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
     console.log(jobDetails);
     if (!jobId) return alert("Job ID not found");
