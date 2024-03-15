@@ -17,7 +17,7 @@ const page = () => {
     router?.push("/dashboard/signin");
   }
 
-  if (session.status === "authenticated") {
+  if (session) {
     return (
       <section className="container mx-auto h-[auto] bg-gray-50 py-[2rem] px-[1rem] md:px-[7rem] z-0">
         <div className=" md:px-20 bg-white p-3 py-10">
