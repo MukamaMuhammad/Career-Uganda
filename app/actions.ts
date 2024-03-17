@@ -14,7 +14,7 @@ export async function jobAction(formData: FormData) {
   const jobTitle = formData.get("jobTitle");
   const location = formData.get("location");
   const companyName = formData.get("companyName");
-  // const jobDescription = formData.get("jobDescription");
+  const jobDescription = formData.get("jobDescription");
   const applicationLink = formData.get("applicationLink");
   const image = formData.get("image");
   const jobType = formData.get("jobType");
@@ -26,7 +26,7 @@ export async function jobAction(formData: FormData) {
     location,
     companyName,
     jobType,
-    // jobDescription,
+    jobDescription,
     applicationLink,
     image,
     jobCategory,
@@ -38,7 +38,7 @@ export async function jobAction(formData: FormData) {
     location,
     companyName,
     jobType,
-    jobDescription: "",
+    jobDescription,
     applicationLink,
     image,
     jobCategory,

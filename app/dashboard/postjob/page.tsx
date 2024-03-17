@@ -3,11 +3,10 @@ import React from "react";
 import useSessionHook from "@hooks/sessionHook";
 import { useRouter } from "next/navigation";
 import { jobAction } from "@app/actions";
-// import Editor from "@components/dashboard/Editor";
+import Editor from "@components/dashboard/Editor";
 
 const page = () => {
-  // const session = useSession();
-  // const router = useRouter();
+  const router = useRouter();
 
   // if (session.status === "loading") {
   //   return <p>Loading...</p>;
@@ -17,20 +16,20 @@ const page = () => {
   //   router?.push("/");
   // }
 
-  // const { loading, authenticated } = useSessionHook();
+  const { loading, authenticated } = useSessionHook();
 
-  // if (loading) {
-  //   return <p>Loading...</p>;
-  // }
+  if (loading) {
+    return <p>Loading...</p>;
+  }
 
-  // if (!authenticated) {
-  //   return (
-  //     <div className="h-[80vh] flex flex-col gap-3 items-center justify-center">
-  //       <p className="text-xl font-semibold">Oops...</p>
-  //       <h2 className="text-3xl font-bold">Unauthorized</h2>
-  //     </div>
-  //   ); // Or redirect or handle unauthenticated state
-  // }
+  if (!authenticated) {
+    return (
+      <div className="h-[80vh] flex flex-col gap-3 items-center justify-center">
+        <p className="text-xl font-semibold">Oops...</p>
+        <h2 className="text-3xl font-bold">Unauthorized</h2>
+      </div>
+    ); // Or redirect or handle unauthenticated state
+  }
 
   return (
     <section className="container mx-auto h-[auto] bg-gray-50 py-[2rem] px-[1rem] md:px-[7rem] z-0">
@@ -268,7 +267,7 @@ const page = () => {
               <label htmlFor="jobDescription" className="text-sm">
                 Job Description
               </label>
-              {/* <Editor /> */}
+              <Editor />
             </div>
 
             <button

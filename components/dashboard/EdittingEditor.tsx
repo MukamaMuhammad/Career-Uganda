@@ -18,6 +18,10 @@ const container = [
 // }
 
 const EdittingEditor = ({ initialContent, onContentChange }) => {
+  const QuillNoSSRWrapper = dynamic(import("react-quill"), {
+    ssr: false,
+    loading: () => <p>loading...</p>,
+  });
   const [content, setContent] = useState(initialContent);
 
   useEffect(() => {
@@ -50,7 +54,7 @@ const EdittingEditor = ({ initialContent, onContentChange }) => {
         onChange={(e) => onContentChange(e.target.value)}
         className="mb-10 outline-0 border border-gray-300 mt-3 text-sm rounded-md w-full px-2 h-10"
       />
-      <ReactQuill
+      <QuillNoSSRWrapper
         theme="snow"
         modules={modules}
         placeholder="Write somethings..."
