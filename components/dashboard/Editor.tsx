@@ -1,7 +1,7 @@
 "use client";
 import { useRef } from "react";
 import dynamic from "next/dynamic";
-import ReactQuill from "react-quill";
+const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 import "react-quill/dist/quill.snow.css";
 import { useState } from "react";
 import { useEffect } from "react";
@@ -13,7 +13,7 @@ const container = [
 ];
 
 const Editor = () => {
-  const quillRef = useRef<typeof ReactQuill>(null);
+  const quillRef = useRef(null);
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
 
   const modules = {

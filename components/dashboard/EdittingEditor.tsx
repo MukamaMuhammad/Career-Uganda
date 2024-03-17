@@ -1,7 +1,7 @@
 "use client";
 import { useRef } from "react";
 import dynamic from "next/dynamic";
-import ReactQuill from "react-quill";
+const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 import "react-quill/dist/quill.snow.css";
 import { useState } from "react";
 import { useEffect } from "react";
@@ -54,7 +54,7 @@ const EdittingEditor = ({ initialContent, onContentChange }) => {
         onChange={(e) => onContentChange(e.target.value)}
         className="mb-10 outline-0 border border-gray-300 mt-3 text-sm rounded-md w-full px-2 h-10"
       />
-      <QuillNoSSRWrapper
+      <ReactQuill
         theme="snow"
         modules={modules}
         placeholder="Write somethings..."
