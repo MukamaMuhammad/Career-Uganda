@@ -12,12 +12,7 @@ const container = [
   [{ align: [] }],
 ];
 
-interface IProps {
-  content: string;
-  setContent: React.Dispatch<React.SetStateAction<string>>;
-}
-
-const Editor: React.FC<IProps> = ({ content, setContent }) => {
+const Editor = () => {
   const quillRef = useRef<typeof ReactQuill>(null);
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
 
@@ -67,7 +62,6 @@ const Editor: React.FC<IProps> = ({ content, setContent }) => {
         modules={modules}
         formats={formats}
         placeholder="Write somethings..."
-        value={content}
         // @ts-ignore
         ref={quillRef}
       />

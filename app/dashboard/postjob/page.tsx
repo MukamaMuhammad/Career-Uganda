@@ -1,12 +1,12 @@
 "use client";
 import React from "react";
-import { useSession } from "next-auth/react";
+import useSessionHook from "@hooks/sessionHook";
 import { useRouter } from "next/navigation";
 import { jobAction } from "@app/actions";
 import Editor from "@components/dashboard/Editor";
 
 const page = () => {
-  const session = useSession();
+  // const session = useSession();
   const router = useRouter();
 
   // if (session.status === "loading") {
@@ -16,6 +16,16 @@ const page = () => {
   // if (session.status === "unauthenticated") {
   //   router?.push("/");
   // }
+
+  const { loading, authenticated } = useSessionHook();
+
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+
+  if (!authenticated) {
+    return null; // Or redirect or handle unauthenticated state
+  }
 
   return (
     <section className="container mx-auto h-[auto] bg-gray-50 py-[2rem] px-[1rem] md:px-[7rem] z-0">
