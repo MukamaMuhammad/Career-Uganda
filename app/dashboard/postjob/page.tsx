@@ -24,7 +24,12 @@ const page = () => {
   }
 
   if (!authenticated) {
-    return null; // Or redirect or handle unauthenticated state
+    return (
+      <div className="h-[80vh] flex flex-col gap-3 items-center justify-center">
+        <p className="text-xl font-semibold">Oops...</p>
+        <h2 className="text-3xl font-bold">Unauthorized</h2>
+      </div>
+    ); // Or redirect or handle unauthenticated state
   }
 
   return (
