@@ -2,7 +2,6 @@
 import React from "react";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import { useRef } from "react";
 import { jobAction } from "@app/actions";
 import Editor from "@components/dashboard/Editor";
 
@@ -10,9 +9,9 @@ const page = () => {
   const session = useSession();
   const router = useRouter();
 
-  if (session.status === "loading") {
-    return <p>Loading...</p>;
-  }
+  // if (session.status === "loading") {
+  //   return <p>Loading...</p>;
+  // }
 
   if (session.status === "unauthenticated") {
     router?.push("/");

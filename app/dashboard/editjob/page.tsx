@@ -73,9 +73,9 @@ const page = () => {
     }
   };
 
-  if (session?.status === "loading") {
-    return <p>Loading...</p>;
-  }
+  // if (session?.status === "loading") {
+  //   return <p>Loading...</p>;
+  // }
 
   if (session?.status === "unauthenticated") {
     router?.push("/");
