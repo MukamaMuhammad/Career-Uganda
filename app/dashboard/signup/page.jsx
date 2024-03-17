@@ -125,7 +125,12 @@
 import React from "react";
 
 const page = () => {
-  return <div>page</div>;
+  return (
+    <div className="h-[80vh] flex flex-col gap-3 items-center justify-center">
+      <p className="text-xl font-semibold">Oops...</p>
+      <h2 className="text-3xl font-bold">Unauthorized</h2>
+    </div>
+  );
 };
 
 export default page;

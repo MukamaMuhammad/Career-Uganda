@@ -106,9 +106,9 @@ const page = () => {
                 Sign up
               </Link>
             </p>
-            <p className="text-sm font-light text-gray-500">
+            {/* <p className="text-sm font-light text-gray-500">
               Sign in with Google? <GoogleButton />
-            </p>
+            </p> */}
           </div>
         </div>
       </div>
