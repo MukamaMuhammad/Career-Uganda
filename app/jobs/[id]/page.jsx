@@ -3,8 +3,8 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import moment from "moment";
 import parse from "html-react-parser";
-
 import { marked } from "marked";
+import { Button } from "@components/ui/button";
 
 async function getData(id) {
   const res = await fetch(`${process.env.BASE_URL}/api/jobposts/${id}`, {
@@ -29,6 +29,16 @@ export async function generateMetadata({ params }) {
 const page = async ({ params }) => {
   const data = await getData(params.id);
   const desc = data.description;
+
+  // Regular expression to check if it's a URL
+  const urlRegex = /^(ftp|http|https):\/\/[^ "]+$/;
+
+  // Regular expression to check if it's an email address
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  // Function to determine if it's a URL or email
+  const isURL = urlRegex.test(data.applicationLink);
+  const isEmail = emailRegex.test(data.applicationLink);
 
   return (
     <section className="container mx-auto bg-gray-100 md:px-7 px-2 py-10 ">
@@ -80,20 +90,36 @@ const page = async ({ params }) => {
               {parse(data.jobDescription)}
             </p>
             <p className="text-[14px] mb-4">
-              <a
-                rel="nofollow"
-                href={data.applicationLink}
-                className="bg-[#4595d0] hover:bg-opacity-90 mr-2 text-white text-sm px-3 py-2 rounded transition"
-              >
-                Apply Here
+              {/* <a rel="nofollow" href={data.applicationLink}>
+                <Button className="bg-[#4595d0] hover:bg-[#4595d0] hover:bg-opacity-90 text-white text-sm rounded transition">
+                  Apply Here
+                </Button>
               </a>
               <a
                 rel="nofollow"
                 href={data.applicationLink}
-                className="underline decoration-1 text-blue-400"
+                className="underline decoration-1 text-blue-400 block mt-2"
               >
                 {data.applicationLink}
-              </a>
+              </a> */}
+              {isURL ? (
+                <a rel="nofollow" href={data.applicationLink}>
+                  <Button className="bg-[#4595d0] hover:bg-[#4595d0] hover:bg-opacity-90 text-white text-sm rounded transition">
+                    Apply Here
+                  </Button>
+                </a>
+              ) : (
+                <div>
+                  <p>Send Application to:</p>
+                  <a
+                    rel="nofollow"
+                    href={"mailto:" + data.applicationLink}
+                    className="underline decoration-1 text-blue-400 block"
+                  >
+                    {data.applicationLink}
+                  </a>
+                </div>
+              )}
             </p>
           </div>
         </div>

@@ -78,7 +78,7 @@ const Jobcard = (props) => {
     //   </Link>
     // </div>
     <Link href={`/jobs/${props._id}`} className="w-[100%]">
-      <Card className="md:w-[800px] w-[100%] max-md:min-w-[320px] flex flex-col   ">
+      <Card className="md:w-[600px] lg:w-[800px] w-[100%] max-md:min-w-[320px] flex flex-col   ">
         <CardHeader>
           <CardTitle className="text-xl mb-3 hover:underline hover:text-[#4595d0] trnsition-all">
             {props.jobTitle}
@@ -103,11 +103,6 @@ const Jobcard = (props) => {
         <CardContent className="font-normal">
           {parse(truncateBody(props.jobDescription.toLowerCase(), 20))}
         </CardContent>
-        {/* <CardFooter className="flex justify-between">
-          <Button variant="outline" className="w-full">
-            Apply
-          </Button>
-        </CardFooter> */}
       </Card>
     </Link>
   );

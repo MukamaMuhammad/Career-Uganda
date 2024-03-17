@@ -41,7 +41,7 @@ const Navbar2 = () => {
   }, [openSidebar]);
 
   return (
-    <div className="flex items-center justify-between gap-10 lg:px-5 lg:pr-8  pr-5 z-[999] py-3 bg-white sticky top-0 shadow-sm h-auto">
+    <div className="flex items-center justify-between gap-10 lg:px-5 lg:pr-8  pr-5 z-[999] py-3 bg-white sticky top-0 shadow-sm md:h-[12vh] h-[8vh]">
       <div
         onClick={() => router.push("/")}
         className="flex items-center cursor-pointer"

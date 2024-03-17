@@ -40,9 +40,32 @@ const PaginationComponent = ({ page, totalPages }) => {
   const pages = getPagesToShow();
 
   return (
-    <Pagination className="cursor-pointer">
-      <PaginationContent>
-        <PaginationItem className="max-md:hidden">
+    <Pagination
+      className="cursor-pointer"
+      ref={(ref) => {
+        if (!ref) return;
+        ref.ontouchstart = (e) => {
+          e.preventDefault();
+        };
+      }}
+    >
+      <PaginationContent
+        ref={(ref) => {
+          if (!ref) return;
+          ref.ontouchstart = (e) => {
+            e.preventDefault();
+          };
+        }}
+      >
+        <PaginationItem
+          className="max-md:hidden"
+          ref={(ref) => {
+            if (!ref) return;
+            ref.ontouchstart = (e) => {
+              e.preventDefault();
+            };
+          }}
+        >
           <Button
             variant="outline"
             onClick={() => {
@@ -53,7 +76,14 @@ const PaginationComponent = ({ page, totalPages }) => {
             <MdKeyboardDoubleArrowLeft className="text-[18px]" />
           </Button>
         </PaginationItem>
-        <PaginationItem>
+        <PaginationItem
+          ref={(ref) => {
+            if (!ref) return;
+            ref.ontouchstart = (e) => {
+              e.preventDefault();
+            };
+          }}
+        >
           <PaginationPrevious
             onClick={() => {
               if (page > 1) page = page - 1 || 1;
@@ -67,6 +97,12 @@ const PaginationComponent = ({ page, totalPages }) => {
 
         {pages.map((p, i) => (
           <PaginationItem
+            ref={(ref) => {
+              if (!ref) return;
+              ref.ontouchstart = (e) => {
+                e.preventDefault();
+              };
+            }}
             onClick={() => {
               page = p;
               pushQuery({ page });
@@ -79,10 +115,24 @@ const PaginationComponent = ({ page, totalPages }) => {
           // </Link>
         ))}
 
-        <PaginationItem>
+        <PaginationItem
+          ref={(ref) => {
+            if (!ref) return;
+            ref.ontouchstart = (e) => {
+              e.preventDefault();
+            };
+          }}
+        >
           {page < totalPages - 1 && <PaginationEllipsis />}
         </PaginationItem>
-        <PaginationItem>
+        <PaginationItem
+          ref={(ref) => {
+            if (!ref) return;
+            ref.ontouchstart = (e) => {
+              e.preventDefault();
+            };
+          }}
+        >
           <PaginationNext
             onClick={() => {
               page = page + 1;
@@ -93,7 +143,15 @@ const PaginationComponent = ({ page, totalPages }) => {
             )}
           />
         </PaginationItem>
-        <PaginationItem className="max-md:hidden">
+        <PaginationItem
+          className="max-md:hidden"
+          ref={(ref) => {
+            if (!ref) return;
+            ref.ontouchstart = (e) => {
+              e.preventDefault();
+            };
+          }}
+        >
           <Button
             variant="outline"
             onClick={() => {

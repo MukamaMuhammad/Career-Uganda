@@ -44,7 +44,7 @@ export default async function Feed(props: any) {
 
   return (
     <section className="h-auto bg-gray-100 pt-5 pb-10 text-center flex flex-col items-center">
-      <div className="mx-3 md:mx-[20%] text-start grid gap-7 md:grid-cols-1 sm:grid-cols-1 ">
+      <div className="mx-3 md:mx-[10%] text-start grid gap-7 md:grid-cols-1 sm:grid-cols-1 items-center justify-center">
         {jobs?.map((job) => (
           <div key={job._id} className="flex">
             <Jobcard id={job._id} {...job} />
