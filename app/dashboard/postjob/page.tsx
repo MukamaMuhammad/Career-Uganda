@@ -3,7 +3,7 @@ import React from "react";
 import useSessionHook from "@hooks/sessionHook";
 import { useRouter } from "next/navigation";
 import { jobAction } from "@app/actions";
-import Editor from "@components/dashboard/Editor";
+// import Editor from "@components/dashboard/Editor";
 
 const page = () => {
   // const session = useSession();
@@ -268,7 +268,7 @@ const page = () => {
               <label htmlFor="jobDescription" className="text-sm">
                 Job Description
               </label>
-              <Editor />
+              {/* <Editor /> */}
             </div>
 
             <button
