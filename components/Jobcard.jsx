@@ -101,7 +101,7 @@ const Jobcard = (props) => {
           </CardDescription>
         </CardHeader>
         <CardContent className="font-normal">
-          {parse(truncateBody(props.jobDescription.toLowerCase(), 20))}
+          {parse(truncateBody(props.jobDescription.toLowerCase(), 13))}
         </CardContent>
       </Card>
     </Link>
