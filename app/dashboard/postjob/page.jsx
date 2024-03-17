@@ -13,9 +13,9 @@ const page = () => {
   //   return <p>Loading...</p>;
   // }
 
-  if (session.status === "unauthenticated") {
-    router?.push("/");
-  }
+  // if (session.status === "unauthenticated") {
+  //   router?.push("/");
+  // }
 
   return (
     <section className="container mx-auto h-[auto] bg-gray-50 py-[2rem] px-[1rem] md:px-[7rem] z-0">

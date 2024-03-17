@@ -21,13 +21,13 @@ const page = () => {
   // console.log(data);
   // const deleteJobWithId = deleteJob.bind(null, postId)
 
-  if (session?.status === "loading") {
-    return <p>Loading...</p>;
-  }
+  // if (session?.status === "loading") {
+  //   return <p>Loading...</p>;
+  // }
 
-  if (session?.status === "unauthenticated") {
-    router?.push("/");
-  }
+  // if (session?.status === "unauthenticated") {
+  //   router?.push("/");
+  // }
 
   const handleDelete = async (id) => {
     try {
