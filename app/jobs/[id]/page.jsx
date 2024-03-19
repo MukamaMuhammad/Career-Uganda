@@ -86,7 +86,7 @@ const page = async ({ params }) => {
 
           <div className="my-5">
             <p className="text-[16px] font-medium mb-2">Job Description</p>
-            <p className="text-gray-500 mb-6 text-[14px] leading-relaxed">
+            <p className="text-gray-500 mb-2 text-[14px] leading-relaxed">
               {parse(data.jobDescription)}
             </p>
             <p className="text-[14px] mb-4">
@@ -116,7 +116,7 @@ const page = async ({ params }) => {
                     href={"mailto:" + data.applicationLink}
                     className="underline decoration-1 text-blue-400 block"
                   >
-                    {data.applicationLink}
+                    {data.applicationLink.replace(/^mailto:/i, "")}
                   </a>
                 </div>
               )}
